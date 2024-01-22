@@ -7,7 +7,7 @@ body { margin: 0; padding: 0; text-align: left; height: 100%; }
 #imContent { position: relative; }
 #imFooterBg { position: absolute; left: 0; bottom: 0; width: 100%; }
 #imStickyBarContainer { visibility: hidden; position: fixed; overflow: hidden; }
-#imPageToTop { position: fixed; bottom: 30px; right: 30px; z-index: 5000; display: none; opacity: 0.75 }
+#imPageToTop { position: fixed; bottom: 30px; right: 30px; z-index: 10500; display: none; opacity: 0.75 }
 #imPageToTop:hover {opacity: 1; cursor: pointer; }
 @media (min-width: 1150px) {
 		#imPageExtContainer { background-image: none; background-color: rgba(203, 203, 203, 1); }
@@ -24,7 +24,7 @@ body { margin: 0; padding: 0; text-align: left; height: 100%; }
 		#imSideBarObjects { position: relative; height: 600px; }
 	
 }
-@media (max-width: 1149px) and (min-width: 720px) {
+@media (max-width: 1149.9px) and (min-width: 720px) {
 		#imPageExtContainer { background-image: none; background-color: rgba(203, 203, 203, 1); }
 		#imPage { padding-top: 0px; padding-bottom: 0px; min-width: 720px; }
 		#imHeaderBg { height: 90px; background-image: none; background-color: rgba(0, 0, 0, 1); }
@@ -39,7 +39,7 @@ body { margin: 0; padding: 0; text-align: left; height: 100%; }
 		#imSideBarObjects { position: relative; height: 600px; }
 	
 }
-@media (max-width: 719px) and (min-width: 480px) {
+@media (max-width: 719.9px) and (min-width: 480px) {
 		#imPageExtContainer { background-image: none; background-color: rgba(203, 203, 203, 1); }
 		#imPage { padding-top: 0px; padding-bottom: 0px; min-width: 480px; }
 		#imHeaderBg { height: 90px; background-image: none; background-color: rgba(0, 0, 0, 1); }
@@ -54,7 +54,7 @@ body { margin: 0; padding: 0; text-align: left; height: 100%; }
 		#imSideBarObjects { position: relative; height: 600px; }
 	
 }
-@media (max-width: 479px)  {
+@media (max-width: 479.9px)  {
 		#imPageExtContainer { background-image: none; background-color: rgba(203, 203, 203, 1); }
 		#imPage { padding-top: 0px; padding-bottom: 0px; }
 		#imHeaderBg { height: 90px; background-image: none; background-color: rgba(0, 0, 0, 1); }

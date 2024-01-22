@@ -12,7 +12,7 @@ $imSettings['general'] = array(
 	'homepage_url' => 'http://localhost/index.html',
 	'icon' => '',
 	'version' => '2021.1.5.1',
-	'sitename' => 'Desarrollo Herramienta PERT',
+	'sitename' => 'Desarrollo de Herramienta Educativa Metodo PERT',
 	'lang_code' => 'es-ES',
 	'public_folder' => '',
 	'salt' => '1upic0sso1r1c3gjpxx47y6glo1jalwph4p4bpy3aoy3d9n76mzefvj2',
@@ -37,8 +37,8 @@ $imSettings['password_policy'] = array(
 |	Captcha
 |-------------------------------
 */ImTopic::$captcha_code = "		<div class=\"x5captcha-wrap\">
-			<label for=\"h0pq4muf-imCpt\">Palabra de control:</label><br />
-			<input type=\"text\" id=\"h0pq4muf-imCpt\" class=\"imCpt\" name=\"imCpt\" maxlength=\"5\" />
+			<label for=\"yxips8uf-imCpt\">Palabra de control:</label><br />
+			<input type=\"text\" id=\"yxips8uf-imCpt\" class=\"imCpt\" name=\"imCpt\" maxlength=\"5\" />
 		</div>
 ";
 
