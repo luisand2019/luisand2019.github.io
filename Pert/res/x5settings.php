@@ -37,8 +37,8 @@ $imSettings['password_policy'] = array(
 |	Captcha
 |-------------------------------
 */ImTopic::$captcha_code = "		<div class=\"x5captcha-wrap\">
-			<label for=\"yxips8uf-imCpt\">Palabra de control:</label><br />
-			<input type=\"text\" id=\"yxips8uf-imCpt\" class=\"imCpt\" name=\"imCpt\" maxlength=\"5\" />
+			<label for=\"rudpg2xi-imCpt\">Palabra de control:</label><br />
+			<input type=\"text\" id=\"rudpg2xi-imCpt\" class=\"imCpt\" name=\"imCpt\" maxlength=\"5\" />
 		</div>
 ";
 

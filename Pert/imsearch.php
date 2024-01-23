@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="style/template.css?2021-1-5-1" media="screen" />
 		
 		<link rel="stylesheet" href="pluginAppObj/imFooter_pluginAppObj_03/custom.css" media="screen, print" />
-		<link rel="stylesheet" href="pcss/imsearch.css?2021-1-5-1-638414801612228430" media="screen,print" />
+		<link rel="stylesheet" href="pcss/imsearch.css?2021-1-5-1-638415716893140537" media="screen,print" />
 		<script src="res/jquery.js?2021-1-5-1"></script>
 		<script src="res/x5engine.js?2021-1-5-1" data-files-version="2021-1-5-1"></script>
 		

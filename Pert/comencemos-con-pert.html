@@ -18,7 +18,7 @@
 		<style type="text/css">#pluginAppObj_6_55 { width: 100%; }</style>
 		
 		<link rel="stylesheet" href="pluginAppObj/imFooter_pluginAppObj_03/custom.css" media="screen, print" />
-		<link rel="stylesheet" href="pcss/comencemos-con-pert.css?2021-1-5-1-638414809511265736" media="screen,print" />
+		<link rel="stylesheet" href="pcss/comencemos-con-pert.css?2021-1-5-1-638415720252868831" media="screen,print" />
 		<script src="res/jquery.js?2021-1-5-1"></script>
 		<script src="res/x5engine.js?2021-1-5-1" data-files-version="2021-1-5-1"></script>
 		
@@ -226,7 +226,164 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 							</div>
 						
 						</div>
-						</div><div id="imCell_60" class=""  data-responsive-sequence-number="12"> <div id="imCellStyleGraphics_60"></div><div id="imCellStyleBorders_60"></div><div id="imHTMLObject_6_60" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!DOCTYPE html>
+						</div><div id="imCell_64" class=""  data-responsive-sequence-number="12"> <div id="imCellStyleGraphics_64"></div><div id="imCellStyleBorders_64"></div><div id="imHTMLObject_6_64" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!DOCTYPE html>
+						<html lang="en">
+						<head>
+						  <meta charset="UTF-8">
+						  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+						  <title>Base de Datos Temporal para PERT</title>
+						  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+						</head>
+						<body>
+						  <h2>1er Paso. Ingreso de Actividades y Tiempos</h2>
+						  <form id="dataForm">
+						    <label for="actividad">Actividad:</label>
+						    <input type="text" id="actividad" name="actividad" required>
+						
+						    <label for="to">Tiempo Óptimo (to):</label>
+						    <input type="number" id="to" name="to" required>
+						
+						    <label for="tm">Tiempo Medio (tm):</label>
+						    <input type="number" id="tm" name="tm" required>
+						
+						    <label for="tp">Tiempo Pesimista (tp):</label>
+						    <input type="number" id="tp" name="tp" required>
+						
+						    <label for="precedencia">Precedencia:</label>
+						    <input type="text" id="precedencia" name="precedencia">
+						
+						    <button type="button" onclick="agregarDatos()">Agregar Datos</button>
+						  </form>
+						
+						  <h2>2do Paso. Cálculo de Tiempo Esperado</h2>
+						  <button type="button" onclick="calcularTiempoEsperado()">Calcular Tiempo Esperado</button>
+						
+						  <h2>3er Paso. Graficar</h2>
+						  <button type="button" onclick="graficar()">Graficar</button>
+						  <canvas id="teChart" width="400" height="400"></canvas>
+						
+						  <h2>4to Paso. Reiniciar</h2>
+						  <button type="button" onclick="reiniciar()">Reiniciar</button>
+						
+						  <h2>Datos Almacenados</h2>
+						  <ul id="listaDatos"></ul>
+						
+						  <script>
+						    function agregarDatos() {
+						      var actividad = document.getElementById('actividad').value;
+						      var to = document.getElementById('to').value;
+						      var tm = document.getElementById('tm').value;
+						      var tp = document.getElementById('tp').value;
+						      var precedencia = document.getElementById('precedencia').value;
+						
+						      if (actividad && to && tm && tp) {
+						        precedencia = precedencia.trim() === '' ? 'NA' : precedencia;
+						
+						        var nuevoDato = {
+						          actividad: actividad,
+						          to: to,
+						          tm: tm,
+						          tp: tp,
+						          precedencia: precedencia
+						        };
+						
+						        var datosExistente = JSON.parse(localStorage.getItem('datos_pert')) || [];
+						        datosExistente.push(nuevoDato);
+						        localStorage.setItem('datos_pert', JSON.stringify(datosExistente));
+						
+						        mostrarDatos();
+						      } else {
+						        alert('Por favor, complete todos los campos obligatorios.');
+						      }
+						    }
+						
+						    function mostrarDatos() {
+						      var listaDatos = document.getElementById('listaDatos');
+						      listaDatos.innerHTML = '';
+						
+						      var datosExistente = JSON.parse(localStorage.getItem('datos_pert')) || [];
+						
+						      datosExistente.forEach(function (dato) {
+						        var li = document.createElement('li');
+						        li.textContent = `Actividad: ${dato.actividad}, TO: ${dato.to}, TM: ${dato.tm}, TP: ${dato.tp}, Precedencia: ${dato.precedencia}`;
+						        listaDatos.appendChild(li);
+						      });
+						    }
+						
+						    function calcularTiempoEsperado() {
+						      var datosExistente = JSON.parse(localStorage.getItem('datos_pert')) || [];
+						
+						      var listaDatos = document.getElementById('listaDatos');
+						      listaDatos.innerHTML = '';
+						
+						      datosExistente.forEach(function (dato) {
+						        var te = ((parseFloat(dato.to) + 4 * parseFloat(dato.tm) + parseFloat(dato.tp)) / 6).toFixed(2);
+						        var li = document.createElement('li');
+						        li.textContent = `Actividad: ${dato.actividad}, TO: ${dato.to}, TM: ${dato.tm}, TP: ${dato.tp}, Precedencia: ${dato.precedencia}, TE: ${te}`;
+						        listaDatos.appendChild(li);
+						      });
+						    }
+						
+						    function graficar() {
+						      var datosExistente = JSON.parse(localStorage.getItem('datos_pert')) || [];
+						      var actividades = [];
+						      var tiemposEsperados = [];
+						
+						      datosExistente.forEach(function (dato) {
+						        actividades.push(dato.actividad);
+						        var te = ((parseFloat(dato.to) + 4 * parseFloat(dato.tm) + parseFloat(dato.tp)) / 6).toFixed(2);
+						        tiemposEsperados.push(te);
+						      });
+						
+						      var ctx = document.getElementById('teChart').getContext('2d');
+						      var myChart = new Chart(ctx, {
+						        type: 'bar',
+						        data: {
+						          labels: actividades,
+						          datasets: [{
+						            label: 'Tiempo Esperado (te)',
+						            data: tiemposEsperados,
+						            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+						            borderColor: 'rgba(75, 192, 192, 1)',
+						            borderWidth: 1,
+						          }]
+						        },
+						        options: {
+						          scales: {
+						            y: {
+						              beginAtZero: true,
+						            }
+						          }
+						        }
+						      });
+						    }
+						
+						    function reiniciar() {
+						      localStorage.removeItem('datos_pert');
+						      var listaDatos = document.getElementById('listaDatos');
+						      listaDatos.innerHTML = '';
+						
+						      var teChart = document.getElementById('teChart').getContext('2d');
+						      teChart.clearRect(0, 0, teChart.canvas.width, teChart.canvas.height);
+						    }
+						
+						    mostrarDatos();
+						  </script>
+						</body>
+						</html>
+						</div></div><div id="imCell_62" class=""  data-responsive-sequence-number="13"> <div id="imCellStyleGraphics_62"></div><div id="imCellStyleBorders_62"></div><div id="imObjectImage_6_62"><div id="imObjectImage_6_62_container"><img src="images/calculadora-PERT1x20.png" title="" alt="" />
+						</div></div></div><div id="imPageRow_6" class="imPageRow">
+						
+						</div>
+						<div id="imCell_65" class=""  data-responsive-sequence-number="14"> <div id="imCellStyleGraphics_65"></div><div id="imCellStyleBorders_65"></div><div id="imTextObject_6_65">
+							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_65_tab0" style="opacity: 1; ">
+								<div class="text-inner">
+									1er Intento
+								</div>
+							</div>
+						
+						</div>
+						</div><div id="imCell_60" class=""  data-responsive-sequence-number="15"> <div id="imCellStyleGraphics_60"></div><div id="imCellStyleBorders_60"></div><div id="imHTMLObject_6_60" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!DOCTYPE html>
 						<html lang="en">
 						<head>
 						    <meta charset="UTF-8">
@@ -349,11 +506,7 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 						
 						</body>
 						</html>
-						</div></div><div id="imCell_62" class=""  data-responsive-sequence-number="13"> <div id="imCellStyleGraphics_62"></div><div id="imCellStyleBorders_62"></div><div id="imObjectImage_6_62"><div id="imObjectImage_6_62_container"><img src="images/calculadora-PERT1x20.png" title="" alt="" />
-						</div></div></div><div id="imPageRow_6" class="imPageRow">
-						
-						</div>
-						<div id="imCell_63" class=""  data-responsive-sequence-number="14"> <div id="imCellStyleGraphics_63"></div><div id="imCellStyleBorders_63"></div><div id="imTextObject_6_63">
+						</div></div><div id="imCell_63" class=""  data-responsive-sequence-number="16"> <div id="imCellStyleGraphics_63"></div><div id="imCellStyleBorders_63"></div><div id="imTextObject_6_63">
 							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_63_tab0" style="opacity: 1; ">
 								<div class="text-inner">
 									.<div><br></div>
@@ -361,7 +514,7 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 							</div>
 						
 						</div>
-						</div><div id="imCell_48" class=""  data-responsive-sequence-number="15"> <div id="imCellStyleGraphics_48"></div><div id="imCellStyleBorders_48"></div><div id="imTextObject_6_48">
+						</div><div id="imCell_48" class=""  data-responsive-sequence-number="17"> <div id="imCellStyleGraphics_48"></div><div id="imCellStyleBorders_48"></div><div id="imTextObject_6_48">
 							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_48_tab0" style="opacity: 1; ">
 								<div class="text-inner">
 									<div class="imHeading2">VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT</div><div data-line-height="1.5" class="lh1-5 mt1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </div><div data-line-height="1.5" class="lh1-5 imTACenter mt1"><img class="image-1" src="images/pixabay-807588.png"  title="" alt=""/><br></div>
@@ -369,7 +522,7 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 							</div>
 						
 						</div>
-						</div><div id="imCell_47" class=""  data-responsive-sequence-number="16"> <div id="imCellStyleGraphics_47"></div><div id="imCellStyleBorders_47"></div><div id="imTextObject_6_47">
+						</div><div id="imCell_47" class=""  data-responsive-sequence-number="18"> <div id="imCellStyleGraphics_47"></div><div id="imCellStyleBorders_47"></div><div id="imTextObject_6_47">
 							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_47_tab0" style="opacity: 1; ">
 								<div class="text-inner">
 									<div class="imHeading2"><span class="cf1">VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT</span></div><div data-line-height="1.5" class="lh1-5 mt1"><span class="cf1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </span></div>
@@ -377,7 +530,7 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 							</div>
 						
 						</div>
-						</div><div id="imCell_49" class=""  data-responsive-sequence-number="17"> <div id="imCellStyleGraphics_49"></div><div id="imCellStyleBorders_49"></div><div id="imTextObject_6_49">
+						</div><div id="imCell_49" class=""  data-responsive-sequence-number="19"> <div id="imCellStyleGraphics_49"></div><div id="imCellStyleBorders_49"></div><div id="imTextObject_6_49">
 							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_49_tab0" style="opacity: 1; ">
 								<div class="text-inner">
 									<div class="imHeading2"><span class="cf1">VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT</span></div><div data-line-height="1.5" class="lh1-5 mt1"><span class="cf1">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </span></div>
@@ -385,9 +538,9 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 							</div>
 						
 						</div>
-						</div><div id="imCell_55" class=""  data-responsive-sequence-number="18"> <div id="imCellStyleGraphics_55"></div><div id="imCellStyleBorders_55"></div><!-- Simple Separator v.2 --><div id="pluginAppObj_6_55">
+						</div><div id="imCell_55" class=""  data-responsive-sequence-number="20"> <div id="imCellStyleGraphics_55"></div><div id="imCellStyleBorders_55"></div><!-- Simple Separator v.2 --><div id="pluginAppObj_6_55">
 						            <div style="width: 100%; height: 20px"></div>
-						        </div></div><div id="imCell_28" class=""  data-responsive-sequence-number="19"> <div id="imCellStyleGraphics_28"></div><div id="imCellStyleBorders_28"></div><div id="imTextObject_6_28">
+						        </div></div><div id="imCell_28" class=""  data-responsive-sequence-number="21"> <div id="imCellStyleGraphics_28"></div><div id="imCellStyleBorders_28"></div><div id="imTextObject_6_28">
 							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_28_tab0" style="opacity: 1; ">
 								<div class="text-inner">
 									<div class="imHeading2">COMMODI CONSEQUATUR</div>
@@ -395,26 +548,10 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 							</div>
 						
 						</div>
-						</div><div id="imCell_29" class=""  data-responsive-sequence-number="20"> <div id="imCellStyleGraphics_29"></div><div id="imCellStyleBorders_29"></div><div id="imTextObject_6_29">
+						</div><div id="imCell_29" class=""  data-responsive-sequence-number="22"> <div id="imCellStyleGraphics_29"></div><div id="imCellStyleBorders_29"></div><div id="imTextObject_6_29">
 							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_29_tab0" style="opacity: 1; ">
 								<div class="text-inner">
 									NEQUE PORRO QUISQUAM EST, QUI DOLOREM IPSUM QUIA DOLOR SIT AMET, CONSECTETUR, ADIPISCI VELIT, SED QUIA NON NUMQUAM
-								</div>
-							</div>
-						
-						</div>
-						</div><div id="imCell_56" class=""  data-responsive-sequence-number="21"> <div id="imCellStyleGraphics_56"></div><div id="imCellStyleBorders_56"></div><div id="imTextObject_6_56">
-							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_56_tab0" style="opacity: 1; ">
-								<div class="text-inner">
-									<div><b class="fs12lh1-5"><span class="fs16lh1-5 cf1 ff1">&gt;</span></b> Neque porro</div><div><div><b class="fs12lh1-5"><span class="fs16lh1-5 cf1 ff1">&gt;</span></b><span class="fs12lh1-5"> </span><span class="fs12lh1-5">Qui dolorem sit</span></div></div>
-								</div>
-							</div>
-						
-						</div>
-						</div><div id="imCell_30" class=""  data-responsive-sequence-number="22"> <div id="imCellStyleGraphics_30"></div><div id="imCellStyleBorders_30"></div><div id="imTextObject_6_30">
-							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_30_tab0" style="opacity: 1; ">
-								<div class="text-inner">
-									<div><b class="fs12lh1-5"><span class="fs16lh1-5 cf1 ff1">&gt;</span></b> Neque porro</div><div><div><b class="fs12lh1-5"><span class="fs16lh1-5 cf1 ff1">&gt;</span></b><span class="fs12lh1-5"> </span><span class="fs12lh1-5">Qui dolorem sit</span></div></div>
 								</div>
 							</div>
 						
@@ -427,21 +564,37 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 							</div>
 						
 						</div>
-						</div><div id="imCell_32" class=""  data-responsive-sequence-number="24"> <div id="imCellStyleGraphics_32"></div><div id="imCellStyleBorders_32"></div><div id="imObjectImage_6_32"><div id="imObjectImage_6_32_container"><img src="images/pixabay-154533.png" title="" alt="" />
-						</div></div></div><div id="imCell_52" class=""  data-responsive-sequence-number="25"> <div id="imCellStyleGraphics_52"></div><div id="imCellStyleBorders_52"></div><div id="imObjectImage_6_52"><div id="imObjectImage_6_52_container"><img src="images/pixabay-189064.png" title="" alt="" />
-						</div></div></div><div id="imCell_50" class=""  data-responsive-sequence-number="26"> <div id="imCellStyleGraphics_50"></div><div id="imCellStyleBorders_50"></div><div id="imObjectImage_6_50"><div id="imObjectImage_6_50_container"><img src="images/pixabay-144997.png" title="" alt="" />
+						</div><div id="imCell_56" class=""  data-responsive-sequence-number="24"> <div id="imCellStyleGraphics_56"></div><div id="imCellStyleBorders_56"></div><div id="imTextObject_6_56">
+							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_56_tab0" style="opacity: 1; ">
+								<div class="text-inner">
+									<div><b class="fs12lh1-5"><span class="fs16lh1-5 cf1 ff1">&gt;</span></b> Neque porro</div><div><div><b class="fs12lh1-5"><span class="fs16lh1-5 cf1 ff1">&gt;</span></b><span class="fs12lh1-5"> </span><span class="fs12lh1-5">Qui dolorem sit</span></div></div>
+								</div>
+							</div>
+						
+						</div>
+						</div><div id="imCell_30" class=""  data-responsive-sequence-number="25"> <div id="imCellStyleGraphics_30"></div><div id="imCellStyleBorders_30"></div><div id="imTextObject_6_30">
+							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_30_tab0" style="opacity: 1; ">
+								<div class="text-inner">
+									<div><b class="fs12lh1-5"><span class="fs16lh1-5 cf1 ff1">&gt;</span></b> Neque porro</div><div><div><b class="fs12lh1-5"><span class="fs16lh1-5 cf1 ff1">&gt;</span></b><span class="fs12lh1-5"> </span><span class="fs12lh1-5">Qui dolorem sit</span></div></div>
+								</div>
+							</div>
+						
+						</div>
+						</div><div id="imCell_50" class=""  data-responsive-sequence-number="26"> <div id="imCellStyleGraphics_50"></div><div id="imCellStyleBorders_50"></div><div id="imObjectImage_6_50"><div id="imObjectImage_6_50_container"><img src="images/pixabay-144997.png" title="" alt="" />
 						</div></div></div><div id="imCell_54" class=""  data-responsive-sequence-number="27"> <div id="imCellStyleGraphics_54"></div><div id="imCellStyleBorders_54"></div><div id="imObjectImage_6_54"><div id="imObjectImage_6_54_container"><img src="images/pixabay-1015751.png" title="" alt="" />
 						</div></div></div><div id="imCell_51" class=""  data-responsive-sequence-number="28"> <div id="imCellStyleGraphics_51"></div><div id="imCellStyleBorders_51"></div><div id="imObjectImage_6_51"><div id="imObjectImage_6_51_container"><img src="images/pixabay-42770.png" title="" alt="" />
 						</div></div></div><div id="imCell_53" class=""  data-responsive-sequence-number="29"> <div id="imCellStyleGraphics_53"></div><div id="imCellStyleBorders_53"></div><div id="imObjectImage_6_53"><div id="imObjectImage_6_53_container"><img src="images/pixabay-784404.png" title="" alt="" />
+						</div></div></div><div id="imCell_32" class=""  data-responsive-sequence-number="30"> <div id="imCellStyleGraphics_32"></div><div id="imCellStyleBorders_32"></div><div id="imObjectImage_6_32"><div id="imObjectImage_6_32_container"><img src="images/pixabay-154533.png" title="" alt="" />
+						</div></div></div><div id="imCell_52" class=""  data-responsive-sequence-number="31"> <div id="imCellStyleGraphics_52"></div><div id="imCellStyleBorders_52"></div><div id="imObjectImage_6_52"><div id="imObjectImage_6_52_container"><img src="images/pixabay-189064.png" title="" alt="" />
 						</div></div></div><div id="imPageRow_7" class="imPageRow">
 						
 						</div>
-						<div id="imCell_34" class=""  data-responsive-sequence-number="30"> <div id="imCellStyleGraphics_34"></div><div id="imCellStyleBorders_34"></div><!-- Simple Separator v.2 --><div id="pluginAppObj_6_34">
+						<div id="imCell_34" class=""  data-responsive-sequence-number="32"> <div id="imCellStyleGraphics_34"></div><div id="imCellStyleBorders_34"></div><!-- Simple Separator v.2 --><div id="pluginAppObj_6_34">
 						            <div style="width: 100%; height: 0px"></div>
 						        </div></div><div id="imPageRow_8" class="imPageRow imParallax">
 						<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden;"><div id="imPageRowGraphics_8" class="imContentDataContainer imParallaxBackground" data-parallax-direction="down" data-parallax-zoom="140"><div id="imPageRowGraphicsOverlay_8"></div></div></div>
 						</div>
-						<div id="imCell_35" class=""  data-responsive-sequence-number="31"> <div id="imCellStyleGraphics_35"></div><div id="imCellStyleBorders_35"></div><div id="imTextObject_6_35">
+						<div id="imCell_35" class=""  data-responsive-sequence-number="33"> <div id="imCellStyleGraphics_35"></div><div id="imCellStyleBorders_35"></div><div id="imTextObject_6_35">
 							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_35_tab0" style="opacity: 1; ">
 								<div class="text-inner">
 									<div><span class="fs16lh1-5 cf1 ff1">LOREM IPSUM DOLOR</span></div><div class="mt1"><span class="fs11lh1-5"><span class="cf1">Duis aute irure dolor in reprehenderit in voluptate velit esse </span><span class="cf1">cillum dolore eu fugiat nulla pariatur. </span><span class="cf1">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></span></div><div><span class="cf1"><br></span></div><div><span class="fs11lh1-5 ff1 cb1"><span class="cf1"><b>&nbsp;</b></span><b><span class="cf1">&nbsp;</span></b><b class="cf1">LOREM IPSUM ></b><b><span class="cf1">&nbsp;</span></b><b><span class="cf1">&nbsp;</span></b></span></div>
@@ -449,7 +602,7 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 							</div>
 						
 						</div>
-						</div><div id="imCell_57" class=""  data-responsive-sequence-number="32"> <div id="imCellStyleGraphics_57"></div><div id="imCellStyleBorders_57"></div><div id="imObjectImage_6_57"><div id="imObjectImage_6_57_container"><img src="images/pixabay-1454731.png" title="" alt="" />
+						</div><div id="imCell_57" class=""  data-responsive-sequence-number="34"> <div id="imCellStyleGraphics_57"></div><div id="imCellStyleBorders_57"></div><div id="imObjectImage_6_57"><div id="imObjectImage_6_57_container"><img src="images/pixabay-1454731.png" title="" alt="" />
 						</div></div></div>
 					</main>
 					<footer id="imFooter">
