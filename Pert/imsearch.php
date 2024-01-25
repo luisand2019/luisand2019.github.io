@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="style/template.css?2021-1-5-1" media="screen" />
 		
 		<link rel="stylesheet" href="pluginAppObj/imFooter_pluginAppObj_03/custom.css" media="screen, print" />
-		<link rel="stylesheet" href="pcss/imsearch.css?2021-1-5-1-638415716893140537" media="screen,print" />
+		<link rel="stylesheet" href="pcss/imsearch.css?2021-1-5-1-638417393457925577" media="screen,print" />
 		<script src="res/jquery.js?2021-1-5-1"></script>
 		<script src="res/x5engine.js?2021-1-5-1" data-files-version="2021-1-5-1"></script>
 		
@@ -48,18 +48,18 @@
 Página de inicio		</a>
 </div>
 </div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths=",/comencemos-con-pert.html">
+	</li><li class="imMnMnMiddle imPage" data-link-paths=",/algunos-calculos-con-pert.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="comencemos-con-pert.html">
-Comencemos con PERT		</a>
+		<a class="label" href="algunos-calculos-con-pert.html">
+Algunos Calculos con PERT		</a>
 </div>
 </div>
-	</li><li class="imMnMnLast imPage" data-link-paths=",/resultados-y-conclusiones.html">
+	</li><li class="imMnMnLast imPage" data-link-paths=",/resultados.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="resultados-y-conclusiones.html">
-Resultados y Conclusiones		</a>
+		<a class="label" href="resultados.html">
+Resultados		</a>
 </div>
 </div>
 	</li></ul></div></div><!-- UNSEARCHABLE END --><script>
@@ -90,18 +90,18 @@ $(function () {$('#imHeader_imMenuObject_02_container ul li, #imHeader_imMenuObj
 Página de inicio		</a>
 </div>
 </div>
-	</li><li class="imMnMnMiddle imPage" data-link-paths=",/comencemos-con-pert.html">
+	</li><li class="imMnMnMiddle imPage" data-link-paths=",/algunos-calculos-con-pert.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="comencemos-con-pert.html">
-Comencemos con PERT		</a>
+		<a class="label" href="algunos-calculos-con-pert.html">
+Algunos Calculos con PERT		</a>
 </div>
 </div>
-	</li><li class="imMnMnLast imPage" data-link-paths=",/resultados-y-conclusiones.html">
+	</li><li class="imMnMnLast imPage" data-link-paths=",/resultados.html">
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
-		<a class="label" href="resultados-y-conclusiones.html">
-Resultados y Conclusiones		</a>
+		<a class="label" href="resultados.html">
+Resultados		</a>
 </div>
 </div>
 	</li></ul></div></div><!-- UNSEARCHABLE END --><script>

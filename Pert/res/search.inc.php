@@ -7,8 +7,8 @@ $imSettings['search']['general'] = array(
 	'menu_position' => 'left',
 	'defaultScope' => array(
 		'0' => 'index.html',
-		'6' => 'comencemos-con-pert.html',
-		'7' => 'resultados-y-conclusiones.html'
+		'6' => 'algunos-calculos-con-pert.html',
+		'7' => 'resultados.html'
 	),
 	'extendedScope' => array(
 	)
