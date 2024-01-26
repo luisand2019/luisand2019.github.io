@@ -743,12 +743,13 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 }
 
 @media (min-width: 1150px) {
-	#imHeader_imObjectTitle_01_wrapper { position: absolute; top: 14px; left: -27px; width: 434px; height: 60px; text-align: center; z-index: 1002;  }
+	#imHeader_imObjectTitle_01_wrapper { position: absolute; top: 14px; left: -27px; width: 501px; height: 60px; text-align: center; z-index: 1002;  }
 	#imHeader_imCell_1 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imHeader_imCell_1 { -ms-grid-rows: 100%; grid-template-rows: 100%; }
 	#imHeader_imObjectTitle_01 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imHeader_imCellStyleGraphics_1 { left: 0px; right: 0px; }
 	#imHeader_imCellStyleBorders_1 { left: 0px; right: 0px; border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
+	#imHeader_imObjectTitle_01_text { font-size: 24.9pt; }
 	#imHeader_imObjectTitle_01{ text-shadow: 0px 0px 10px rgba(100, 255, 206, 1)}#imHeader_imObjectTitle_01 { width: 100%; }
 	#imHeader_imObjectTitle_01_text { margin-left: 0px;
 	margin-right: 0px;
@@ -766,7 +767,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imHeader_imMenuObject_02_container > ul:after {content: '';display: table;clear: both; }
 	/* Main menu button size and position */
 	#imHeader_imMenuObject_02_container > ul > li {position: relative;margin-left: 10px; margin-top: 0px; display: inline-block; vertical-align: top; }
-	#imHeader_imMenuObject_02_container > ul > li > .label-wrapper, #imHeader_imMenuObject_02_container > ul > li > div > .label-wrapper { display: block; overflow: hidden; width: 120px; height: 40px; padding: 0 5px 0 5px; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
+	#imHeader_imMenuObject_02_container > ul > li > .label-wrapper, #imHeader_imMenuObject_02_container > ul > li > div > .label-wrapper { display: block; overflow: hidden; width: 135px; height: 40px; padding: 0 5px 0 5px; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 	#imHeader_imMenuObject_02 .hamburger-button {cursor: pointer; width: 40px; height: 40px; display: inline-block; vertical-align: top; padding: 0; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 	#imHeader_imMenuObject_02 .hamburger-bar { margin: 4px auto; width: 65%; height: 4px; background-color: rgba(255, 255, 255, 1); }
 	#imHeader_imMenuObject_02 .label-inner-wrapper, #imHeader_imMenuObject_02 .hamburger-button > div { display: table; width: 100%; height: 100%; position: relative; z-index: 1; } #imHeader_imMenuObject_02_container > ul > li .label, #imHeader_imMenuObject_02 .hamburger-button > div > div { display: table-cell; vertical-align: middle; }
@@ -814,7 +815,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imHeader_imMenuObject_02 .imMnMnCurrent > ul > .imMnMnCurrent > .label-wrapper {background-color: transparent;background-image: none;border-color: rgba(211, 211, 211, 1) rgba(211, 211, 211, 1) rgba(211, 211, 211, 1) rgba(211, 211, 211, 1);border-style: solid; }
 	#imHeader_imMenuObject_02 .imMnMnCurrent > ul > .imMnMnCurrent > .label-wrapper .label {width: 100%;height: 100%;font-family: Montserrat;font-size: 10pt;font-style: normal;text-decoration: none;text-align: left; color: rgba(255, 255, 255, 1);font-weight: bold;}
 	#imHeader_imMenuObject_02 ul ul { z-index: 2; }/* Level menu show/hide directives */
-	#imHeader_imMenuObject_02 .multiple-column {position: absolute; z-index: 2;top: 0; left: 130px;}
+	#imHeader_imMenuObject_02 .multiple-column {position: absolute; z-index: 2;top: 0; left: 145px;}
 	#imHeader_imMenuObject_02 .multiple-column > ul {position: static;
 	display: inline-block;vertical-align: top;}
 	#imHeader_imMenuObject_02 .multiple-column > ul > li {display: block;}
@@ -822,8 +823,8 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	top: 0;
 	}
 	#imHeader_imMenuObject_02_container > ul > li > ul.open-bottom { left: 0; }
-	#imHeader_imMenuObject_02_container > ul > li > ul.open-left { right: 130px; }
-	#imHeader_imMenuObject_02_container > ul > li > ul.open-right { left: 130px; }
+	#imHeader_imMenuObject_02_container > ul > li > ul.open-left { right: 145px; }
+	#imHeader_imMenuObject_02_container > ul > li > ul.open-right { left: 145px; }
 	#imHeader_imMenuObject_02_container > ul > li > ul ul, #imHeader_imMenuObject_02_container .multiple-column > ul > li ul {position: absolute;
 	top: 0;
 	}
@@ -831,11 +832,11 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imHeader_imMenuObject_02_container  > ul > li > ul ul.open-right, #imHeader_imMenuObject_02_container .multiple-column > ul > li ul.open-right{ left: 180px; }
 	#imHeader_imMenuObject_02 ul > li > ul, #imHeader_imMenuObject_02 .multiple-column { visibility: hidden; opacity: 0; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s; transform: translate3d(50%,0,0);}
 	#imHeader_imMenuObject_02 ul > li > ul.animated, #imHeader_imMenuObject_02 .multiple-column.animated { visibility: visible; opacity: 1; transform: translate3d(0,0,0);  transition-delay: 0s, 0s; }
-	#imHeader_imMenuObject_02_container > ul > li:nth-child(5n+1) {
+	#imHeader_imMenuObject_02_container > ul > li:nth-child(4n+1) {
 	margin-left: 0;
 	clear: left;
 	}
-	#imHeader_imMenuObject_02_container > ul > li:nth-child(n+6) {
+	#imHeader_imMenuObject_02_container > ul > li:nth-child(n+5) {
 	margin-top: 10px; 
 	}
 	#imHeader_imMenuObject_02-menu-opened { display: none; }
@@ -850,7 +851,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imHeader_imObjectTitle_01 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imHeader_imCellStyleGraphics_1 { left: 0px; right: 0px; }
 	#imHeader_imCellStyleBorders_1 { left: 0px; right: 0px; border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
-	#imHeader_imObjectTitle_01_text { font-size: 9.33pt; }
+	#imHeader_imObjectTitle_01_text { font-size: 10.36pt; }
 	#imHeader_imObjectTitle_01{ text-shadow: 0px 0px 10px rgba(100, 255, 206, 1)}#imHeader_imObjectTitle_01 { width: 100%; }
 	#imHeader_imObjectTitle_01_text { margin-left: 0px;
 	margin-right: 0px;
@@ -868,7 +869,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imHeader_imMenuObject_02_container > ul:after {content: '';display: table;clear: both; }
 	/* Main menu button size and position */
 	#imHeader_imMenuObject_02_container > ul > li {position: relative;margin-left: 10px; margin-top: 0px; display: inline-block; vertical-align: top; }
-	#imHeader_imMenuObject_02_container > ul > li > .label-wrapper, #imHeader_imMenuObject_02_container > ul > li > div > .label-wrapper { display: block; overflow: hidden; width: 120px; height: 40px; padding: 0 5px 0 5px; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
+	#imHeader_imMenuObject_02_container > ul > li > .label-wrapper, #imHeader_imMenuObject_02_container > ul > li > div > .label-wrapper { display: block; overflow: hidden; width: 135px; height: 40px; padding: 0 5px 0 5px; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 	#imHeader_imMenuObject_02 .hamburger-button {cursor: pointer; width: 40px; height: 40px; display: inline-block; vertical-align: top; padding: 0; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 	#imHeader_imMenuObject_02 .hamburger-bar { margin: 4px auto; width: 65%; height: 4px; background-color: rgba(255, 255, 255, 1); }
 	#imHeader_imMenuObject_02 .label-inner-wrapper, #imHeader_imMenuObject_02 .hamburger-button > div { display: table; width: 100%; height: 100%; position: relative; z-index: 1; } #imHeader_imMenuObject_02_container > ul > li .label, #imHeader_imMenuObject_02 .hamburger-button > div > div { display: table-cell; vertical-align: middle; }
@@ -943,7 +944,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imHeader_imObjectTitle_01 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imHeader_imCellStyleGraphics_1 { left: 0px; right: 0px; }
 	#imHeader_imCellStyleBorders_1 { left: 0px; right: 0px; border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
-	#imHeader_imObjectTitle_01_text { font-size: 9.33pt; }
+	#imHeader_imObjectTitle_01_text { font-size: 10.36pt; }
 	#imHeader_imObjectTitle_01{ text-shadow: 0px 0px 10px rgba(100, 255, 206, 1)}#imHeader_imObjectTitle_01 { width: 100%; }
 	#imHeader_imObjectTitle_01_text { margin-left: 0px;
 	margin-right: 0px;
@@ -961,7 +962,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imHeader_imMenuObject_02_container > ul:after {content: '';display: table;clear: both; }
 	/* Main menu button size and position */
 	#imHeader_imMenuObject_02_container > ul > li {position: relative;margin-left: 10px; margin-top: 0px; display: inline-block; vertical-align: top; }
-	#imHeader_imMenuObject_02_container > ul > li > .label-wrapper, #imHeader_imMenuObject_02_container > ul > li > div > .label-wrapper { display: block; overflow: hidden; width: 120px; height: 40px; padding: 0 5px 0 5px; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
+	#imHeader_imMenuObject_02_container > ul > li > .label-wrapper, #imHeader_imMenuObject_02_container > ul > li > div > .label-wrapper { display: block; overflow: hidden; width: 135px; height: 40px; padding: 0 5px 0 5px; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 	#imHeader_imMenuObject_02 .hamburger-button {cursor: pointer; width: 40px; height: 40px; display: inline-block; vertical-align: top; padding: 0; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 	#imHeader_imMenuObject_02 .hamburger-bar { margin: 4px auto; width: 65%; height: 4px; background-color: rgba(255, 255, 255, 1); }
 	#imHeader_imMenuObject_02 .label-inner-wrapper, #imHeader_imMenuObject_02 .hamburger-button > div { display: table; width: 100%; height: 100%; position: relative; z-index: 1; } #imHeader_imMenuObject_02_container > ul > li .label, #imHeader_imMenuObject_02 .hamburger-button > div > div { display: table-cell; vertical-align: middle; }
@@ -1035,7 +1036,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imHeader_imObjectTitle_01 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imHeader_imCell_1 { -ms-grid-rows: 100%; grid-template-rows: 100%; }
 	#imHeader_imCellStyleGraphics_1 { top: 0px; bottom: 0px; left: 0px; right: 0px; box-sizing: border-box; }
-	#imHeader_imObjectTitle_01_text { font-size: 9.33pt; }
+	#imHeader_imObjectTitle_01_text { font-size: 10.36pt; }
 	#imHeader_imObjectTitle_01{ text-shadow: 0px 0px 10px rgba(100, 255, 206, 1)}#imHeader_imObjectTitle_01 { width: 100%; }
 	#imHeader_imObjectTitle_01_text { margin-left: 0px;
 	margin-right: 0px;
@@ -1052,7 +1053,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imHeader_imMenuObject_02_container > ul:after {content: '';display: table;clear: both; }
 	/* Main menu button size and position */
 	#imHeader_imMenuObject_02_container > ul > li {position: relative;margin-left: 10px; margin-top: 0px; display: inline-block; vertical-align: top; }
-	#imHeader_imMenuObject_02_container > ul > li > .label-wrapper, #imHeader_imMenuObject_02_container > ul > li > div > .label-wrapper { display: block; overflow: hidden; width: 120px; height: 40px; padding: 0 5px 0 5px; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
+	#imHeader_imMenuObject_02_container > ul > li > .label-wrapper, #imHeader_imMenuObject_02_container > ul > li > div > .label-wrapper { display: block; overflow: hidden; width: 135px; height: 40px; padding: 0 5px 0 5px; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 	#imHeader_imMenuObject_02 .hamburger-button {cursor: pointer; width: 40px; height: 40px; display: inline-block; vertical-align: top; padding: 0; border-width: 0px 0px 0px 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 	#imHeader_imMenuObject_02 .hamburger-bar { margin: 4px auto; width: 65%; height: 4px; background-color: rgba(255, 255, 255, 1); }
 	#imHeader_imMenuObject_02 .label-inner-wrapper, #imHeader_imMenuObject_02 .hamburger-button > div { display: table; width: 100%; height: 100%; position: relative; z-index: 1; } #imHeader_imMenuObject_02_container > ul > li .label, #imHeader_imMenuObject_02 .hamburger-button > div > div { display: table-cell; vertical-align: middle; }
@@ -1140,7 +1141,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imFooter_imCellStyleGraphics_2 { left: 0px; right: 0px; }
 	#imFooter_imCellStyleBorders_2 { left: 0px; right: 0px; border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
 	#imFooter_imTextObject_02 .text-container {border-width: 0 1px 1px 1px;box-sizing: border-box;width: 100%;}
-	#imFooter_pluginAppObj_03_wrapper { position: absolute; top: 289px; left: 60px; width: 130px; height: 50px; text-align: center; z-index: 1004; overflow: hidden; }
+	#imFooter_pluginAppObj_03_wrapper { position: absolute; top: 289px; left: 60px; width: 130px; height: 50px; text-align: center; z-index: 1004;  }
 	#imFooter_imCell_3 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imFooter_imCell_3 { -ms-grid-rows: 100%; grid-template-rows: 100%; }
 	#imFooter_pluginAppObj_03 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
@@ -1169,7 +1170,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imFooter_imObjectTitle_01 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imFooter_imCellStyleGraphics_1 { left: 0px; right: 0px; }
 	#imFooter_imCellStyleBorders_1 { left: 0px; right: 0px; border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
-	#imFooter_imObjectTitle_01_text { font-size: 14.09pt; }
+	#imFooter_imObjectTitle_01_text { font-size: 15.06pt; }
 	#imFooter_imObjectTitle_01{ text-shadow: 0px 0px 10px rgba(100, 255, 206, 1)}#imFooter_imObjectTitle_01 { width: 100%; }
 	#imFooter_imObjectTitle_01_text { margin-left: 0px;
 	margin-right: 0px;
@@ -1183,7 +1184,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imFooter_imCellStyleGraphics_2 { left: 0px; right: 0px; }
 	#imFooter_imCellStyleBorders_2 { left: 0px; right: 0px; border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
 	#imFooter_imTextObject_02 .text-container {border-width: 0 1px 1px 1px;box-sizing: border-box;width: 100%;}
-	#imFooter_pluginAppObj_03_wrapper { position: absolute; top: 280px; left: 0px; width: 130px; height: 50px; text-align: center; z-index: 1004; overflow: hidden; }
+	#imFooter_pluginAppObj_03_wrapper { position: absolute; top: 280px; left: 0px; width: 130px; height: 50px; text-align: center; z-index: 1004;  }
 	#imFooter_imCell_3 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imFooter_imCell_3 { -ms-grid-rows: 100%; grid-template-rows: 100%; }
 	#imFooter_pluginAppObj_03 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
@@ -1212,7 +1213,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imFooter_imObjectTitle_01 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imFooter_imCellStyleGraphics_1 { left: 0px; right: 0px; }
 	#imFooter_imCellStyleBorders_1 { left: 0px; right: 0px; border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
-	#imFooter_imObjectTitle_01_text { font-size: 14.09pt; }
+	#imFooter_imObjectTitle_01_text { font-size: 15.06pt; }
 	#imFooter_imObjectTitle_01{ text-shadow: 0px 0px 10px rgba(100, 255, 206, 1)}#imFooter_imObjectTitle_01 { width: 100%; }
 	#imFooter_imObjectTitle_01_text { margin-left: 0px;
 	margin-right: 0px;
@@ -1226,7 +1227,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imFooter_imCellStyleGraphics_2 { left: 0px; right: 0px; }
 	#imFooter_imCellStyleBorders_2 { left: 0px; right: 0px; border-top: 0; border-bottom: 0; border-left: 0; border-right: 0; }
 	#imFooter_imTextObject_02 .text-container {border-width: 0 1px 1px 1px;box-sizing: border-box;width: 100%;}
-	#imFooter_pluginAppObj_03_wrapper { position: absolute; top: 270px; left: -7px; width: 130px; height: 50px; text-align: center; z-index: 1004; overflow: hidden; }
+	#imFooter_pluginAppObj_03_wrapper { position: absolute; top: 270px; left: -7px; width: 130px; height: 50px; text-align: center; z-index: 1004;  }
 	#imFooter_imCell_3 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imFooter_imCell_3 { -ms-grid-rows: 100%; grid-template-rows: 100%; }
 	#imFooter_pluginAppObj_03 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
@@ -1254,7 +1255,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imFooter_imObjectTitle_01 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imFooter_imCell_1 { -ms-grid-rows: 100%; grid-template-rows: 100%; }
 	#imFooter_imCellStyleGraphics_1 { top: 0px; bottom: 0px; left: 0px; right: 0px; box-sizing: border-box; }
-	#imFooter_imObjectTitle_01_text { font-size: 14.09pt; }
+	#imFooter_imObjectTitle_01_text { font-size: 15.06pt; }
 	#imFooter_imObjectTitle_01{ text-shadow: 0px 0px 10px rgba(100, 255, 206, 1)}#imFooter_imObjectTitle_01 { width: 100%; }
 	#imFooter_imObjectTitle_01_text { margin-left: 0px;
 	margin-right: 0px;
@@ -1267,7 +1268,7 @@ max-height: 100%; position: absolute; top: 0; bottom: 0; left: 3px; margin: auto
 	#imFooter_imCell_2 { -ms-grid-rows: 100%; grid-template-rows: 100%; }
 	#imFooter_imCellStyleGraphics_2 { top: 0px; bottom: 0px; left: 0px; right: 0px; box-sizing: border-box; }
 	#imFooter_imTextObject_02 .text-container {border-width: 0 1px 1px 1px;box-sizing: border-box;width: 100%;}
-	#imFooter_pluginAppObj_03_wrapper { position: absolute; top: 270px; left: 20px; width: 130px; height: 50px; text-align: center; z-index: 1004; overflow: hidden; }
+	#imFooter_pluginAppObj_03_wrapper { position: absolute; top: 270px; left: 20px; width: 130px; height: 50px; text-align: center; z-index: 1004;  }
 	#imFooter_imCell_3 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imFooter_pluginAppObj_03 { padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; }
 	#imFooter_imCell_3 { -ms-grid-rows: 100%; grid-template-rows: 100%; }
