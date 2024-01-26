@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="style/template.css?2021-1-5-1" media="screen" />
 		
 		<link rel="stylesheet" href="pluginAppObj/imFooter_pluginAppObj_03/custom.css" media="screen, print" />
-		<link rel="stylesheet" href="pcss/imsearch.css?2021-1-5-1-638417393457925577" media="screen,print" />
+		<link rel="stylesheet" href="pcss/imsearch.css?2021-1-5-1-638417933073561485" media="screen,print" />
 		<script src="res/jquery.js?2021-1-5-1"></script>
 		<script src="res/x5engine.js?2021-1-5-1" data-files-version="2021-1-5-1"></script>
 		
@@ -45,7 +45,7 @@
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
 		<a class="label" href="index.html">
-Página de inicio		</a>
+Metodo Pert		</a>
 </div>
 </div>
 	</li><li class="imMnMnMiddle imPage" data-link-paths=",/algunos-calculos-con-pert.html">
@@ -87,7 +87,7 @@ $(function () {$('#imHeader_imMenuObject_02_container ul li, #imHeader_imMenuObj
 <div class="label-wrapper">
 <div class="label-inner-wrapper">
 		<a class="label" href="index.html">
-Página de inicio		</a>
+Metodo Pert		</a>
 </div>
 </div>
 	</li><li class="imMnMnMiddle imPage" data-link-paths=",/algunos-calculos-con-pert.html">
