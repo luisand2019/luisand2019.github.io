@@ -19,7 +19,7 @@
 		<style type="text/css">#pluginAppObj_6_68 { width: 100%; }</style>
 		
 		<link rel="stylesheet" href="pluginAppObj/imFooter_pluginAppObj_03/custom.css" media="screen, print" />
-		<link rel="stylesheet" href="pcss/algunos-calculos-con-pert.css?2021-1-5-1-638418201971971719" media="screen,print" />
+		<link rel="stylesheet" href="pcss/algunos-calculos-con-pert.css?2021-1-5-1-638418255406285724" media="screen,print" />
 		<script src="res/jquery.js?2021-1-5-1"></script>
 		<script src="res/x5engine.js?2021-1-5-1" data-files-version="2021-1-5-1"></script>
 		
@@ -339,8 +339,127 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 						</div>
 						</div><div id="imCell_68" class=""  data-responsive-sequence-number="9"> <div id="imCellStyleGraphics_68"></div><div id="imCellStyleBorders_68"></div><!-- Simple Separator v.2 --><div id="pluginAppObj_6_68">
 						            <div style="width: 100%; height: 0px"></div>
-						        </div></div><div id="imCell_67" class=""  data-responsive-sequence-number="10"> <div id="imCellStyleGraphics_67"></div><div id="imCellStyleBorders_67"></div><div id="imObjectImage_6_67"><div id="imObjectImage_6_67_container"><img src="images/excel-planilla1.png" title="" alt="" />
-						</div></div></div><div id="imCell_63" class=""  data-responsive-sequence-number="11"> <div id="imCellStyleGraphics_63"></div><div id="imCellStyleBorders_63"></div><div id="imTextObject_6_63">
+						        </div></div><div id="imCell_70" class=""  data-responsive-sequence-number="10"> <div id="imCellStyleGraphics_70"></div><div id="imCellStyleBorders_70"></div><div id="imTextObject_6_70">
+							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_70_tab0" style="opacity: 1; ">
+								<div class="text-inner">
+									<div><span class="fs12lh1-5"><br></span></div><div><span class="fs12lh1-5">Con este codigo podemos por ejemplo hacer un </span><span class="fs12lh1-5"><b>Grafico Gannt</b></span><span class="fs12lh1-5"> con nuestras actividades</span><br></div>
+								</div>
+							</div>
+						
+						</div>
+						</div><div id="imCell_69" class=""  data-responsive-sequence-number="11"> <div id="imCellStyleGraphics_69"></div><div id="imCellStyleBorders_69"></div><div id="imHTMLObject_6_69" class="imHTMLObject" style="text-align: center; width: 100%; overflow: hidden;"><!DOCTYPE html>
+						<html lang="es">
+						<head>
+						    <meta charset="UTF-8">
+						    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+						    <title>Highcharts Gantt Chart</title>
+						    <script src="https://code.highcharts.com/gantt/highcharts-gantt.js"></script>
+						    <style>
+						        button {
+						            margin-top: 10px; /* Ajusta este valor según sea necesario */
+						        }
+						    </style>
+						</head>
+						<body>
+						    <h1>Planificación de Proyecto</h1>
+						
+						    <form id="inputForm">
+						        <label for="activityCount">Número de Actividades:</label>
+						        <input type="number" id="activityCount" min="1" required><br>
+						
+						        <div id="activityInputs"></div>
+						
+						        <button type="button" onclick="addActivities()">Ingresar Actividades</button>
+						        <button type="button" onclick="generateChart()">Hacer Gráfico</button>
+						    </form>
+						
+						    <div id="container" style="height: 400px;"></div>
+						
+						    <script>
+						        Highcharts.setOptions({
+						            lang: {
+						                months: [
+						                    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+						                    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+						                ],
+						                weekdays: [
+						                    'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'
+						                ],
+						                shortMonths: [
+						                    'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+						                    'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'
+						                ],
+						                rangeSelectorZoom: 'Zoom',
+						                rangeSelectorFrom: 'Desde',
+						                rangeSelectorTo: 'Hasta',
+						                resetZoom: 'Restablecer zoom'
+						            }
+						        });
+						
+						        function addActivities() {
+						            const activityCount = document.getElementById('activityCount').value;
+						            const activityInputs = document.getElementById('activityInputs');
+						
+						            // Limpiar campos anteriores
+						            activityInputs.innerHTML = '';
+						
+						            // Generar dinámicamente campos para cada actividad
+						            for (let i = 1; i <= activityCount; i++) {
+						                activityInputs.innerHTML += `
+						                    <label for="activityName${i}">Nombre de Actividad ${i}:</label>
+						                    <input type="text" id="activityName${i}" required><br>
+						                    
+						                    <label for="activityStart${i}">Inicio de Actividad ${i}:</label>
+						                    <input type="date" id="activityStart${i}" required><br>
+						                    
+						                    <label for="activityEnd${i}">Fin de Actividad ${i}:</label>
+						                    <input type="date" id="activityEnd${i}" required><br>
+						                `;
+						            }
+						        }
+						
+						        function generateChart() {
+						            const activityCount = document.getElementById('activityCount').value;
+						            const chartData = [];
+						
+						            // Recolectar datos para el gráfico
+						            for (let i = 1; i <= activityCount; i++) {
+						                const name = document.getElementById(`activityName${i}`).value;
+						                const start = new Date(document.getElementById(`activityStart${i}`).value);
+						                const end = new Date(document.getElementById(`activityEnd${i}`).value);
+						
+						                start.setUTCHours(0);
+						                start.setUTCMinutes(0);
+						                start.setUTCSeconds(0);
+						                start.setUTCMilliseconds(0);
+						
+						                chartData.push({
+						                    name: name,
+						                    data: [{
+						                        name: name,
+						                        start: start.getTime(),
+						                        end: end.getTime()
+						                    }]
+						                });
+						            }
+						
+						            // Configuración del gráfico de Gantt con nombres de semanas y meses en español
+						            const chart = Highcharts.ganttChart('container', {
+						                series: chartData
+						            });
+						
+						            // Cambiar las etiquetas de las semanas después de cargar el gráfico
+						            chart.xAxis[0].update({
+						                dateTimeLabelFormats: {
+						                    week: '%e %b, %Y'
+						                }
+						            });
+						        }
+						    </script>
+						</body>
+						</html>
+						</div></div><div id="imCell_67" class=""  data-responsive-sequence-number="12"> <div id="imCellStyleGraphics_67"></div><div id="imCellStyleBorders_67"></div><div id="imObjectImage_6_67"><div id="imObjectImage_6_67_container"><img src="images/excel-planilla1.png" title="" alt="" />
+						</div></div></div><div id="imCell_63" class=""  data-responsive-sequence-number="13"> <div id="imCellStyleGraphics_63"></div><div id="imCellStyleBorders_63"></div><div id="imTextObject_6_63">
 							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_63_tab0" style="opacity: 1; ">
 								<div class="text-inner">
 									<div>Tambien podemos practicar con ayuda de una tabla Excel. La cual la podras Obtener ===&gt; <span class="fs12lh1-5"><b><a href="files/Practica-PERT-5---Excel-QM.xlsx" target="_blank" class="imCssLink">AQUI</a></b></span></div>
@@ -348,11 +467,9 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 							</div>
 						
 						</div>
-						</div><div id="imCell_55" class=""  data-responsive-sequence-number="12"> <div id="imCellStyleGraphics_55"></div><div id="imCellStyleBorders_55"></div><!-- Simple Separator v.2 --><div id="pluginAppObj_6_55">
+						</div><div id="imCell_55" class=""  data-responsive-sequence-number="14"> <div id="imCellStyleGraphics_55"></div><div id="imCellStyleBorders_55"></div><!-- Simple Separator v.2 --><div id="pluginAppObj_6_55">
 						            <div style="width: 100%; height: 20px"></div>
-						        </div></div><div id="imCell_53" class=""  data-responsive-sequence-number="13"> <div id="imCellStyleGraphics_53"></div><div id="imCellStyleBorders_53"></div><div id="imObjectImage_6_53"><div id="imObjectImage_6_53_container"><img src="images/pixabay-784404.png" title="" alt="" />
-						</div></div></div><div id="imCell_52" class=""  data-responsive-sequence-number="14"> <div id="imCellStyleGraphics_52"></div><div id="imCellStyleBorders_52"></div><div id="imObjectImage_6_52"><div id="imObjectImage_6_52_container"><img src="images/pixabay-189064.png" title="" alt="" />
-						</div></div></div><div id="imCell_29" class=""  data-responsive-sequence-number="15"> <div id="imCellStyleGraphics_29"></div><div id="imCellStyleBorders_29"></div><div id="imTextObject_6_29">
+						        </div></div><div id="imCell_29" class=""  data-responsive-sequence-number="15"> <div id="imCellStyleGraphics_29"></div><div id="imCellStyleBorders_29"></div><div id="imTextObject_6_29">
 							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_29_tab0" style="opacity: 1; ">
 								<div class="text-inner">
 									<div><br></div>Espero que esto te sirva para empezar con PERT.
@@ -361,15 +478,17 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 						
 						</div>
 						</div><div id="imCell_54" class=""  data-responsive-sequence-number="16"> <div id="imCellStyleGraphics_54"></div><div id="imCellStyleBorders_54"></div><div id="imObjectImage_6_54"><div id="imObjectImage_6_54_container"><img src="images/pixabay-1015751.png" title="" alt="" />
+						</div></div></div><div id="imCell_52" class=""  data-responsive-sequence-number="17"> <div id="imCellStyleGraphics_52"></div><div id="imCellStyleBorders_52"></div><div id="imObjectImage_6_52"><div id="imObjectImage_6_52_container"><img src="images/pixabay-189064.png" title="" alt="" />
+						</div></div></div><div id="imCell_53" class=""  data-responsive-sequence-number="18"> <div id="imCellStyleGraphics_53"></div><div id="imCellStyleBorders_53"></div><div id="imObjectImage_6_53"><div id="imObjectImage_6_53_container"><img src="images/pixabay-784404.png" title="" alt="" />
 						</div></div></div><div id="imPageRow_5" class="imPageRow">
 						
 						</div>
-						<div id="imCell_34" class=""  data-responsive-sequence-number="17"> <div id="imCellStyleGraphics_34"></div><div id="imCellStyleBorders_34"></div><!-- Simple Separator v.2 --><div id="pluginAppObj_6_34">
+						<div id="imCell_34" class=""  data-responsive-sequence-number="19"> <div id="imCellStyleGraphics_34"></div><div id="imCellStyleBorders_34"></div><!-- Simple Separator v.2 --><div id="pluginAppObj_6_34">
 						            <div style="width: 100%; height: 0px"></div>
 						        </div></div><div id="imPageRow_6" class="imPageRow imParallax">
 						<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden;"><div id="imPageRowGraphics_6" class="imContentDataContainer imParallaxBackground" data-parallax-direction="down" data-parallax-zoom="140"><div id="imPageRowGraphicsOverlay_6"></div></div></div>
 						</div>
-						<div id="imCell_35" class=""  data-responsive-sequence-number="18"> <div id="imCellStyleGraphics_35"></div><div id="imCellStyleBorders_35"></div><div id="imTextObject_6_35">
+						<div id="imCell_35" class=""  data-responsive-sequence-number="20"> <div id="imCellStyleGraphics_35"></div><div id="imCellStyleBorders_35"></div><div id="imTextObject_6_35">
 							<div data-index="0"  class="text-tab-content grid-prop current-tab "  id="imTextObject_6_35_tab0" style="opacity: 1; ">
 								<div class="text-inner">
 									<div><span class="fs16lh1-5 cf1 ff1">Pronto subiremos mas ejercicios...</span></div><div class="mt1"><br></div><div><span class="fs11lh1-5 ff1 cb1"><span class="cf1"><b>&nbsp;</b></span><b><span class="cf1">&nbsp;Cbba-2024</span></b><b class="cf1"> ></b><b><span class="cf1">&nbsp;</span></b><b><span class="cf1">&nbsp;</span></b></span></div>
@@ -377,7 +496,7 @@ $(function () {$('#imStickyBar_imMenuObject_03_container ul li').not('.imMnMnSep
 							</div>
 						
 						</div>
-						</div><div id="imCell_57" class=""  data-responsive-sequence-number="19"> <div id="imCellStyleGraphics_57"></div><div id="imCellStyleBorders_57"></div><div id="imObjectImage_6_57"><div id="imObjectImage_6_57_container"><img src="images/pixabay-1454731.png" title="" alt="" />
+						</div><div id="imCell_57" class=""  data-responsive-sequence-number="21"> <div id="imCellStyleGraphics_57"></div><div id="imCellStyleBorders_57"></div><div id="imObjectImage_6_57"><div id="imObjectImage_6_57_container"><img src="images/pixabay-1454731.png" title="" alt="" />
 						</div></div></div>
 					</main>
 					<footer id="imFooter">
